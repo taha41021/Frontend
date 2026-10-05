@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "components"
+import "pages"
 
 ApplicationWindow {
     id: window
@@ -32,9 +34,7 @@ ApplicationWindow {
             Layout.fillHeight: true
             Layout.preferredWidth: 230
             currentPage: window.currentPage
-            onNavigate: function(page) {
-                window.currentPage = page
-            }
+            onNavigate: function(page) { window.currentPage = page }
         }
 
         Rectangle {
@@ -63,12 +63,10 @@ ApplicationWindow {
                         liveAlerts: appState.liveAlerts
                         lastEvent: appState.lastEvent
                     }
-
                     LivePage {
                         peopleInFrame: appState.peopleInFrame
                         cameraOnline: appState.cameraOnline
                     }
-
                     AttendancePage {}
                     PeoplePage {}
                     ReportsPage {}
